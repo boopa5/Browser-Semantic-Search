@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Browser Semantic Search",
+    "description": "Semantically search a webpage",
+    "version": "1.0",
+    "action": {
+      "default_popup": "./popup/popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["activeTab", "scripting"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["./scripts/content.js"]
+        }
+    ],
+    "commands": {
+        "_execute_action": {
+          "suggested_key": {
+            "default": "Ctrl+B",
+            "mac": "Command+B"
+          }
+        }
+      }
+}
